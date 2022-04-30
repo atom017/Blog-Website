@@ -1,0 +1,26 @@
+.createPost{
+    width:60%;
+    padding:1rem;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    box-shadow: 10px 10px 8px 10px #888888;
+    margin:0 auto;
+}
+
+.create-form{
+    display: flex;
+    flex-direction: column; 
+}
+
+.input-group{
+    width:100%;
+    margin-top: 1rem;
+    display:flex;
+    flex-direction: column;
+}
+
+.input-group input,.input-group textarea{
+    padding:0.5rem;
+    
+}
+

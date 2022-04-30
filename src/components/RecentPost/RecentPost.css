@@ -1,0 +1,17 @@
+.recentPost{
+    padding:1rem 1rem 1rem 0;
+   
+}
+.recent{
+    display: flex;
+    margin-top: 1rem;
+    border:1px solid black;
+}
+.recent img{
+    width:5rem;
+    height: 5 rem;
+}
+
+.recent-text{
+    padding: 1rem;
+}

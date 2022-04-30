@@ -1,0 +1,40 @@
+.navBar {
+    height:4rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #5c6a79;
+    justify-content: space-between;
+    padding:0 3rem;
+    background-color: #dfbbb0;
+}
+
+.navLogo span{
+    color:var(--primary-blue);
+}
+
+.navLists{
+    display: flex;
+    list-style-type: none;
+}
+
+.navItem{
+   list-style: none;
+    margin-right: 1rem;
+    cursor:pointer;
+    color:#fff;
+    padding:0px;
+    text-align: center;
+    
+}
+
+.navItem:hover {
+    
+    border-bottom: 2px solid var(--primary-blue);
+}
+
+.loginBtn{
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--primary-blue);
+    outline:none;
+}
