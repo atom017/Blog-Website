@@ -13,7 +13,7 @@ const CreatePost = () => {
 
         <div className="input-group">
           <label htmlFor="title">Description</label>
-          <textarea name="" id="" cols="30" rows="5"></textarea>
+          <textarea name="" id="" cols="30" rows="4"></textarea>
         </div>
         
         <div className="input-group">

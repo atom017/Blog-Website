@@ -16,7 +16,7 @@ const Sidebar = () => {
             
             
         </div>
-        <RecentPost/>
+       
     </section>
   )
 }
