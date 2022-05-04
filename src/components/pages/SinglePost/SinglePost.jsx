@@ -1,5 +1,4 @@
 import React from 'react'
-import Sidebar from '../../Sidebar/Sidebar';
 import './SinglePost.css';
 
 const SinglePost = () => {
@@ -22,7 +21,7 @@ const SinglePost = () => {
           </div>
           
         </div>
-        <Sidebar/>
+        
     </div>
   )
 }

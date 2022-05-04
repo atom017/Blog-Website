@@ -6,9 +6,10 @@ const Post = () => {
     <div className="card">
       <div class="card-header">
         <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
+        <span class="tag">Technology</span>
       </div>
       <div class="card-body">
-        <span class="tag">Technology</span>
+        
         <h4>
           Why is the Tesla Cybertruck designed the way it
           is?

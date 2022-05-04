@@ -1,9 +1,25 @@
+.createPost-Wrapper{
+    width:100%;
+  height: calc(100vh - 4rem);
+  background-image: url('../../../images/image-2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+}
+
 .createPost{
     width:60%;
     padding:1rem;
     border-radius: 5px;
-    box-shadow: 10px 10px 8px 10px #888888;
-    margin:0.5rem auto;
+    /* box-shadow: 10px 10px 8px 10px #888888; */
+    margin:0 auto;
+    border:1px solid black;
+    background-color: rgba(0,0,0,0.5);
+    
+}
+
+.createPost h1, .create-form label{
+    color:#fff;
 }
 
 .create-form{
@@ -20,6 +36,14 @@
 
 .input-group input,.input-group textarea{
     padding:0.5rem;
-    
+    outline:none;
 }
 
+.form-btn{
+    background-color: var(--primary-blue);
+    outline:none;
+    border:none;
+    color:#fff;
+    padding:1rem;
+    font-size: 20px;
+}

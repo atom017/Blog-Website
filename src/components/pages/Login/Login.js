@@ -3,14 +3,14 @@ import './Login.css'
 
 const Login = () => {
   return (
-    <div className='header'>
-    <div className='heroContainer'>
-     
+    <div className='login-container'>
       <button type="button" class="google-btn" >
-        Sign in with Google
-      </button>
+      Sign in with Google
+    </button>
+  
     </div>
-    </div>
+    
+    
   )
 }
 
