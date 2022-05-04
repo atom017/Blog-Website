@@ -4,3 +4,16 @@
     width:90%;
     margin:2rem auto;
 }
+
+@media only screen and (max-width: 768px){
+  .home-split{
+      flex-direction: column-reverse;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width:832px){
+    .home-split{
+        
+        width:100%;
+    }
+}
