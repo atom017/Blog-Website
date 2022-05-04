@@ -19,7 +19,7 @@ const CreatePost = () => {
           
           <div className="input-group">
           <label htmlFor="">Image</label>
-        <input type="file" accept='image/*'/>
+          <input type="file" className='image-input' accept='image/*'/>
           </div>
         
         <button className='form-btn'>Publish</button>

@@ -22,6 +22,10 @@
     list-style-type: none;
 }
 
+.nav-bars{
+    display:none;
+}
+
 .navItem{
    list-style: none;
     margin-right: 1rem;
@@ -43,4 +47,13 @@
     border-radius: 0.5rem;
     background-color: var(--primary-blue);
     outline:none;
+}
+
+@media screen and (max-width:768px){
+    .nav-bars{
+        display:block;
+    }
+    .navLists{
+        display:none;
+    }
 }

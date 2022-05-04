@@ -1,17 +1,22 @@
-import React from 'react'
+import React from 'react';
+import './Filter.css'
 
 const Filter = () => {
   return (
     <div className="filters">
-        <label for="tags">Tags:</label>
+      <div className="tags">
+      <label for="tags">Tags:</label>
+      <select name="tags" >
+          <option value="all">All</option>
+          <option value="travel">Travel</option>
+          <option value="sports">Sports</option>
+          <option value="audi">Technology</option>
+          <option value="life">Life</option>
+      </select>
+      </div>
 
-        <select name="tags" >
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-        </select>
-          </div>
+    
+    </div>
   )
 }
 

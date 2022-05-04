@@ -40,3 +40,10 @@
       0 2px 4px rgba(0, 0, 0, .25),
       0 0 0 3px #c8dafc;
   }
+
+  @media  screen and (max-width:468px) {
+    .google-btn{
+      font-size: 16px;
+      padding:12px 1rem 12px 2rem;
+    }
+  }

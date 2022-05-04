@@ -1,4 +1,5 @@
 import React from 'react'
+import Filter from '../../Filter/Filter';
 import Header from '../../Header/Header';
 import Posts from '../Posts/Posts';
 import './Home.css';
@@ -8,16 +9,7 @@ const Home = () => {
     <section id='home'>
         <Header/>
         <div className="home-split">
-          <div className="filters">
-            <label for="cars">Choose a car:</label>
-
-            <select name="cars" id="cars">
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
-            </select>
-          </div>
+           <Filter/>
           <Posts/>
         </div>
         

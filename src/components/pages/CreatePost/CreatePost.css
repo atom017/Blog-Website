@@ -39,6 +39,12 @@
     outline:none;
 }
 
+.input-group .image-input{
+    padding:0;
+    width:fit-content;
+    
+}
+
 .form-btn{
     background-color: var(--primary-blue);
     outline:none;
@@ -46,4 +52,10 @@
     color:#fff;
     padding:1rem;
     font-size: 20px;
+}
+
+@media screen and (max-width:768px){
+    .createPost{
+        width:80%;
+    }
 }
