@@ -1,12 +1,12 @@
 .navBar {
-    position:sticky;
+ 
     height:4rem;
     display: flex;
     align-items: center;
     border-bottom: 2px solid #5c6a79;
     justify-content: space-between;
     padding:0 3rem;
-    background-color: #a9f1ce;
+    background-color: var(--secondary-blue);
     
 }
 
@@ -42,11 +42,22 @@
     border-bottom: 2px solid var(--primary-blue);
 }
 
+.menu-div{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    
+
+}
+
 .loginBtn{
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     background-color: var(--primary-blue);
     outline:none;
+    margin-right: 0.5rem;
+    border:none;
+    color:#fff;
 }
 
 @media screen and (max-width:768px){
@@ -54,6 +65,29 @@
         display:block;
     }
     .navLists{
-        display:none;
+        flex-direction: column;
+        width:100%;
+        
+        top:4rem;
+        left:0;
+        position:absolute;
+        text-align: center;
+        background-color: rgba(0,0,0,0.9);
+        z-index:5;
+        
     }
+
+    .navList,.loginBtn{
+        width:100%;
+        padding:1.5rem 0;
+        border-bottom: 1px solid #333;
+    }
+
+    .navItem{
+        color:#fff;
+        font-size: 18px;
+        font-weight: 800;
+    }
+
+    
 }

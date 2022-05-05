@@ -1,10 +1,32 @@
 import React from 'react';
 import './Login.css'
+import {auth,provider} from '../../../firebase/FirebaseConfig';
+import {signInWithPopup} from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../../context/UserContext';
+
 
 const Login = () => {
+  const {setIsAuth,setUser}= useUserContext();
+  let navigate  = useNavigate();
+
+  const loginGoogle = () =>{
+    
+    signInWithPopup(auth,provider)
+    .then((result) =>{
+      setIsAuth(true);
+      setUser({
+        id:auth.currentUser.uid,
+        name:auth.currentUser.displayName,
+        photoURL:auth.currentUser.photoURL
+      })
+      localStorage.setItem("isBlogAuth",true);
+      navigate('/');
+    })
+  }
   return (
     <div className='login-container'>
-      <button type="button" class="google-btn" >
+      <button type="button" className="google-btn" onClick={loginGoogle} >
       Sign in with Google
     </button>
   

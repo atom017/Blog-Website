@@ -5,8 +5,8 @@ const Filter = () => {
   return (
     <div className="filters">
       <div className="tags">
-      <label for="tags">Tags:</label>
-      <select name="tags" >
+      
+      <select name="tags" className='tags-select' >
           <option value="all">All</option>
           <option value="travel">Travel</option>
           <option value="sports">Sports</option>

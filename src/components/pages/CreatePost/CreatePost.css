@@ -9,7 +9,7 @@
 
 .createPost{
     width:60%;
-    padding:1rem;
+    padding:0.5rem 1rem;
     border-radius: 5px;
     /* box-shadow: 10px 10px 8px 10px #888888; */
     margin:0 auto;
@@ -41,8 +41,7 @@
 
 .input-group .image-input{
     padding:0;
-    width:fit-content;
-    
+    width:fit-content; 
 }
 
 .form-btn{
@@ -50,12 +49,20 @@
     outline:none;
     border:none;
     color:#fff;
-    padding:1rem;
+    padding:0.5rem;
     font-size: 20px;
 }
 
 @media screen and (max-width:768px){
     .createPost{
         width:80%;
+    }
+
+    .createPost h1{
+        font-size:20px;
+    }
+
+    .input-group label{
+        font-size:16px;
     }
 }
