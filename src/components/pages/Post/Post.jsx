@@ -1,17 +1,16 @@
 import React from 'react'
-import {useHistory, useNavigate} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
+import { useUserContext } from '../../../context/UserContext';
 import './Post.css';
 
-const Post = ({id,title,description,imageUrl,createdAt,tag}) => {
+const Post = ({id,title,description,imageUrl,createdAt,tag,user}) => {
   let navigate = useNavigate();
-
-  const handleClick = () =>{
-    navigate('/singlePost');
-  }
+  
+  
   
   return (
     
-    <div className="card" onClick={handleClick}>
+    <div className="card" onClick={() => navigate(`singlePost/${id}`)}>
       <div className="card-header">
         <img src={imageUrl} alt="rover" />
         <span className="tag">{tag}</span>
@@ -27,9 +26,9 @@ const Post = ({id,title,description,imageUrl,createdAt,tag}) => {
 
         {/* user */}
         <div className="user">
-          <img src="https://studyinbaltics.ee/wp-content/uploads/2020/03/3799Ffxy.jpg" alt="user" />
+          <img src={user.photoURL} alt="user" />
           <div className="user-info">
-            <h5>Carrie Brewer</h5>
+            <h5>{user.name}</h5>
             <small>{createdAt.toDate().toDateString()}</small>
           </div>
         </div>

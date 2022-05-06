@@ -14,7 +14,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/singlePost" element={<SinglePost/>}/>
+        <Route path="/singlePost/:id" element={<SinglePost/>}/>
         <Route path="/createPost" element={<CreatePost/>}/>
         <Route path="/login" element={<Login/>}/>
       </Routes>

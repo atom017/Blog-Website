@@ -1,8 +1,11 @@
-
+.singlePost{
+    width:80%;
+    margin:0 auto;
+}
 
 .singlePostImg{
     width:100%;
-    height: 70vh;
+    max-height: 400px;
 }
 
 .singlePost-spans span{
@@ -13,4 +16,14 @@
     display: flex;
     justify-content: space-between;
     margin:1rem 0;
+}
+
+@media screen and (max-width:768px){
+    .singlePost-info{
+        display: block;
+    }
+    .singlePost-spans span{
+        display: inline-block;
+        font-size:14px;
+    }
 }

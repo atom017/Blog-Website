@@ -1,23 +1,45 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../../firebase/FirebaseConfig';
 import './SinglePost.css';
 
 const SinglePost = () => {
-  return (
+  const params  = useParams();
+  const {id} = params;
+  const [postDetail,setPostDetail] = useState();
+  
+  const getPost = async () =>{
+    const postDoc = doc(db,'Posts',id);
+    const result = await getDoc(postDoc);
+    if(result){
+      console.log(result.data());
+      setPostDetail(result.data())
+    }
+  }
+  useEffect( () =>{
+    getPost();
+    
+  },[])
+
+ 
+  if (postDetail) {return (
+    
     <div className='home-split'>
+      {console.log('inside: ',postDetail)}
         <div className='singlePost'>
-          <img className='singlePostImg' src="https://images.unsplash.com/photo-1651219469237-9b5eff513fff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1MXx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60" alt="" />
+          <img className='singlePostImg' src={postDetail.imageUrl} alt="" />
           <div className="singlePost-text">
-            <h2>Title</h2>
+            <h2>{postDetail.title}</h2>
             <div className='singlePost-info'>
               <div className='singlePost-spans'>
-                <span>Author: <b>Haruki</b> </span>
-                <span>Date: <b>2022 May</b></span>
+                <span>Author: <b>{postDetail.user.name}</b> </span>
+                <span>Date: <b>{postDetail.createdAt.toDate().toDateString()}</b></span>
               </div>
               
               <button>Delete</button>
             </div>
-            <p className='singlePostPara'>Lorem ipsum dolor sit amet consectetur
-               adipisicing elit. Rem magnam ipsum mollitia pariatur culpa delectus provident architecto deleniti ipsam atque, corrupti illo incidunt, et maiores sint nobis beatae assumenda reiciendis?</p>
+            <p className='singlePostPara'>{postDetail.description}</p>
           </div>
           
         </div>
@@ -25,5 +47,13 @@ const SinglePost = () => {
     </div>
   )
 }
+else{
+  return (
+    <h2>Loading...</h2>
+  )
+}
+}
+
+
 
 export default SinglePost

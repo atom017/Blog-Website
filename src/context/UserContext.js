@@ -11,10 +11,12 @@ export const UserContextProvider = ({children}) =>{
         photoURL:'',
         
     });
+
+    const [postInfo,setPostInfo]=useState({});
     const [isAuth,setIsAuth] = useState(false);
 
     return (<UserContext.Provider
-    value={{isAuth,setIsAuth,user,setUser}}>
+    value={{isAuth,setIsAuth,user,setUser,postInfo,setPostInfo}}>
         {children}
     </UserContext.Provider>)
 
