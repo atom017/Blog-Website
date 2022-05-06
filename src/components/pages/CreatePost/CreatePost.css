@@ -1,4 +1,5 @@
 .createPost-Wrapper{
+    position:absolute;
     width:100%;
   height: calc(100vh - 4rem);
   background-image: url('../../../images/image-2.jpg');
@@ -29,7 +30,7 @@
 
 .input-group{
     width:100%;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     display:flex;
     flex-direction: column;
 }
@@ -44,6 +45,15 @@
     width:fit-content; 
 }
 
+
+
+.imagePreview{
+    margin-top: 0.3rem;
+    width:50px;
+    height:50px;
+    object-fit: cover;
+}
+
 .form-btn{
     background-color: var(--primary-blue);
     outline:none;
@@ -52,6 +62,8 @@
     padding:0.5rem;
     font-size: 20px;
 }
+
+
 
 @media screen and (max-width:768px){
     .createPost{

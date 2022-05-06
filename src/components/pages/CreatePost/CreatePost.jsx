@@ -4,10 +4,12 @@ import { addDoc, collection, Timestamp} from 'firebase/firestore';
 import {getDownloadURL, ref, uploadBytesResumable} from 'firebase/storage'
 import { useUserContext } from '../../../context/UserContext';
 import { db, storage } from '../../../firebase/FirebaseConfig';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CreatePost = () => {
   const {user} = useUserContext();
+  const [imgPreview,setImgPreview] = useState('');
   
   const [formData,setFormData]= useState({
     title:'',
@@ -20,6 +22,8 @@ const CreatePost = () => {
 
   const handleImageChange = (e) =>{
     setFormData({...formData,image:e.target.files[0]});
+    setImgPreview(URL.createObjectURL(e.target.files[0]));
+    
   }
 
   const handlePublish = (e) =>{
@@ -40,7 +44,6 @@ const CreatePost = () => {
     },
     () =>{
      
-      
       
       getDownloadURL(uploadImage.snapshot.ref)
       .then((url) =>{
@@ -99,14 +102,17 @@ const CreatePost = () => {
           
           <div className="input-group">
           <label htmlFor="">Image</label>
-          <input 
-          type="file" 
-          className='image-input' 
-          accept='image/*'
-          onChange={(e) =>handleImageChange(e)}
-          />
+          
+            <input 
+            type="file" 
+            className='image-input' 
+            accept='image/*'
+            onChange={(e) =>handleImageChange(e)}
+            />
+              
           </div>
-
+          
+        
           <div className="input-group">
             <label htmlFor="tags">Category</label>
             <select name="tags" className='tags-select' 
@@ -127,7 +133,9 @@ const CreatePost = () => {
         onClick={(e) => handlePublish(e)}
         >Publish</button>
         </form>
+        
       </div>
+      <ToastContainer/>
     </div>
     
   )

@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
-import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../../../firebase/FirebaseConfig';
+import { useNavigate, useParams } from 'react-router-dom';
+import { deleteDoc, doc, getDoc } from 'firebase/firestore';
+import { auth, db, storage } from '../../../firebase/FirebaseConfig';
 import './SinglePost.css';
+import { toast,ToastClassName, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { deleteObject,ref} from 'firebase/storage';
 
 const SinglePost = () => {
+  let navigate = useNavigate();
   const params  = useParams();
   const {id} = params;
   const [postDetail,setPostDetail] = useState();
@@ -13,37 +17,69 @@ const SinglePost = () => {
     const postDoc = doc(db,'Posts',id);
     const result = await getDoc(postDoc);
     if(result){
-      console.log(result.data());
+       
       setPostDetail(result.data())
     }
   }
   useEffect( () =>{
     getPost();
     
-  },[])
+  },[]);
 
+  const handleDelete=async () =>{
+    try {
+      
+      const imageUrl = postDetail.imageUrl;
+      await deleteDoc(doc(db,'Posts',id));
+      toast('Article Deleted!',{type:"success"});
+      const storageRef = ref(storage,imageUrl);
+      await deleteObject(storageRef);
+    } catch (error) {
+      toast('Error deleting Post!',{type:"error"})
+    }
+    
+  }
+
+  const handlePostEdit = () =>{
+    navigate(`/singlePost/${id}/edit`)
+  }
  
   if (postDetail) {return (
     
     <div className='home-split'>
-      {console.log('inside: ',postDetail)}
+      
         <div className='singlePost'>
-          <img className='singlePostImg' src={postDetail.imageUrl} alt="" />
+          <div className="singlePostImg-container">
+            <img className='singlePostImg' src={postDetail.imageUrl} alt="" />
+          </div> 
+          
           <div className="singlePost-text">
             <h2>{postDetail.title}</h2>
             <div className='singlePost-info'>
+              
               <div className='singlePost-spans'>
                 <span>Author: <b>{postDetail.user.name}</b> </span>
                 <span>Date: <b>{postDetail.createdAt.toDate().toDateString()}</b></span>
               </div>
+
+              {(auth.currentUser.uid === postDetail.user.id) &&
+               (
+                <div className='singlePost-icons'>
+                <button onClick={handlePostEdit}>
+                  <i className="fa-solid fa-pen-to-square"></i>
+                </button>
+                <button onClick={handleDelete}>
+                  <i className="fa-solid fa-trash-can"></i>
+                </button>
+              </div>
+              )}
               
-              <button>Delete</button>
+              
             </div>
             <p className='singlePostPara'>{postDetail.description}</p>
           </div>
-          
         </div>
-        
+        <ToastContainer/>
     </div>
   )
 }

@@ -6,8 +6,6 @@ import './Post.css';
 const Post = ({id,title,description,imageUrl,createdAt,tag,user}) => {
   let navigate = useNavigate();
   
-  
-  
   return (
     
     <div className="card" onClick={() => navigate(`singlePost/${id}`)}>
@@ -21,7 +19,8 @@ const Post = ({id,title,description,imageUrl,createdAt,tag,user}) => {
           {title}
         </h4>
         <p className='card-paragraph'>
-          {description}
+          <span className='truncate'>{description}</span>
+          
         </p>
 
         {/* user */}

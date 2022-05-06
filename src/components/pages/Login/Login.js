@@ -26,6 +26,7 @@ const Login = () => {
   }
   return (
     <div className='login-container'>
+      <h3 className='login-text'>Sign in to Create Post</h3>
       <button type="button" className="google-btn" onClick={loginGoogle} >
       Sign in with Google
     </button>

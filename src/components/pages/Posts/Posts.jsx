@@ -19,7 +19,7 @@ const Posts = () => {
         ...doc.data()
       }))
       setPosts(allposts);
-      console.log(allposts);
+      
     })
   },[])
   return (

@@ -1,0 +1,10 @@
+.editPost{
+    width:80%;
+    margin:0 auto;
+}
+.editImg{
+    width:400px;
+    height:300px;
+    object-fit: cover;
+    
+}

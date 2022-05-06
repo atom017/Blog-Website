@@ -44,7 +44,7 @@
     min-height: 200px;
   }
 
-  .card-paragraph{
+  .truncate{
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -54,6 +54,7 @@
     overflow:hidden;
     margin:10px 0;
   }
+  
 
   .user {
     display: flex;
