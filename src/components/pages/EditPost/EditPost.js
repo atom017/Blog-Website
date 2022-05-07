@@ -1,12 +1,14 @@
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import React, { useEffect,useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { db } from '../../../firebase/FirebaseConfig';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './EditPost.css'
+import { useUserContext } from '../../../context/UserContext';
 
 const EditPost = () => {
+    const {isAuth} = useUserContext();
   
     const [postDetail,setPostDetail] = useState({
         title:'',
@@ -24,7 +26,6 @@ const EditPost = () => {
         if(result){
           
           setPostDetail(result.data())
-          
         }
     }
 
@@ -43,10 +44,15 @@ const EditPost = () => {
         }
         
     }
+
+if(!isAuth){
+    return <Navigate to="/" replace/>
+}
     
   return (
     <div className='editPost'>
-        <form >
+        <h4>Edit Post</h4>
+        <form className='editForm'>
             <div>
                 <img className="editImg" src={postDetail.imageUrl} alt="img" />
             </div>
@@ -81,7 +87,7 @@ const EditPost = () => {
               <option value="business">Buiness</option>
             </select>
 
-            <button onClick={(e) => handleUpdate(e)}>Update</button>
+            <button className='updateBtn' onClick={(e) => handleUpdate(e)}>Update</button>
           </div>
         </form>
     </div>

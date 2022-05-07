@@ -1,10 +1,36 @@
 .editPost{
     width:80%;
     margin:0 auto;
+    padding:1rem;
 }
 .editImg{
-    width:400px;
-    height:300px;
+    width:100%;
+    max-height:300px;
     object-fit: cover;
     
+}
+
+.input-group label{
+    margin:0.5rem 0 0.3rem 0;
+}
+
+.updateBtn{
+    margin-top: 0.5rem;
+    padding:1rem;
+    background-color: var(--primary-blue);
+    color:#ffff;
+    outline:none;
+    border:1px solid var(--primary-blue);
+    font-size: 20px;
+}
+
+.updateBtn:hover{
+    color:var(--primary-blue);
+    background-color: #fff;
+}
+
+@media screen and (max-width:460px) {
+    .editPost{
+        width:95%;
+    }
 }

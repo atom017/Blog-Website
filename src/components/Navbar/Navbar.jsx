@@ -29,7 +29,7 @@ const Navbar = () => {
   const handleSignOut = () =>{
     signOut(auth);
     setIsAuth(false);
-    localStorage.clear();
+    localStorage.removeItem('isBlogAuth');
     navigate('/login');
   }
 

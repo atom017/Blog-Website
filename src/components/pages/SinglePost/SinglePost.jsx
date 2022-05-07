@@ -13,11 +13,11 @@ const SinglePost = () => {
   const {id} = params;
   const [postDetail,setPostDetail] = useState();
   
+  
   const getPost = async () =>{
     const postDoc = doc(db,'Posts',id);
     const result = await getDoc(postDoc);
     if(result){
-       
       setPostDetail(result.data())
     }
   }
@@ -62,7 +62,7 @@ const SinglePost = () => {
                 <span>Date: <b>{postDetail.createdAt.toDate().toDateString()}</b></span>
               </div>
 
-              {(auth.currentUser.uid === postDetail.user.id) &&
+              {((auth.currentUser) && (auth.currentUser.uid === postDetail.user.id)) &&
                (
                 <div className='singlePost-icons'>
                 <button onClick={handlePostEdit}>
