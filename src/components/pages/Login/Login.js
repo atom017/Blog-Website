@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Login.css'
 import {auth,provider} from '../../../firebase/FirebaseConfig';
 import {signInWithPopup} from 'firebase/auth';
@@ -7,7 +7,7 @@ import { useUserContext } from '../../../context/UserContext';
 
 
 const Login = () => {
-  const {setIsAuth,setUser}= useUserContext();
+  const {setIsAuth,setCurrentUser,currentUser}= useUserContext();
   let navigate  = useNavigate();
 
   const loginGoogle = () =>{
@@ -15,15 +15,20 @@ const Login = () => {
     signInWithPopup(auth,provider)
     .then((result) =>{
       setIsAuth(true);
-      setUser({
+      setCurrentUser({
         id:auth.currentUser.uid,
         name:auth.currentUser.displayName,
         photoURL:auth.currentUser.photoURL
       })
       localStorage.setItem("isBlogAuth",true);
       navigate('/');
+     
     })
+   
+
+    
   }
+ 
   return (
     <div className='login-container'>
       <h3 className='login-text'>Sign in to Create Post</h3>

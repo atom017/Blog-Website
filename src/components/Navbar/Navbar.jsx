@@ -7,8 +7,8 @@ import { auth } from '../../firebase/FirebaseConfig';
 
 const Navbar = () => {
   let navigate = useNavigate();
-  const {isAuth,setIsAuth} = useUserContext();
-  const [toggleMenu,setToggleMenu] = useState(false);
+  const {isAuth,setIsAuth,toggleMenu,setToggleMenu,setCurrentUser} = useUserContext();
+  
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
 
   useEffect(()=>{
@@ -30,6 +30,7 @@ const Navbar = () => {
     signOut(auth);
     setIsAuth(false);
     localStorage.removeItem('isBlogAuth');
+    localStorage.removeItem('currentUser');
     navigate('/login');
   }
 
@@ -39,8 +40,8 @@ const Navbar = () => {
       <h2 className='navLogo'><span>H</span>aruki</h2>
       {(toggleMenu || screenWidth > 768) && 
       (<ul className='navLists'>
-        <li className='navList'><Link to="/" className='navItem'>Home</Link></li>
-        <li className='navList'><Link to="/" className='navItem'>About</Link></li>
+        <li className='navList' ><Link to="/" className='navItem' >Home</Link></li>
+        <li className='navList'><Link to="/about" className='navItem'>About</Link></li>
         {isAuth &&<li className='navList'><Link to="/createPost" className='navItem'>Create</Link></li>
         }
         {isAuth ? <button onClick={handleSignOut} className='loginBtn'>Logout</button>:

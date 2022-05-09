@@ -6,11 +6,13 @@ import './SinglePost.css';
 import { toast,ToastClassName, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { deleteObject,ref} from 'firebase/storage';
+import { useUserContext } from '../../../context/UserContext';
 
 const SinglePost = () => {
   let navigate = useNavigate();
   const params  = useParams();
   const {id} = params;
+  const {currentUser} = useUserContext();
   const [postDetail,setPostDetail] = useState();
   
   
@@ -62,7 +64,7 @@ const SinglePost = () => {
                 <span>Date: <b>{postDetail.createdAt.toDate().toDateString()}</b></span>
               </div>
 
-              {((auth.currentUser) && (auth.currentUser.uid === postDetail.user.id)) &&
+              {((currentUser) && (currentUser.id === postDetail.user.id)) &&
                (
                 <div className='singlePost-icons'>
                 <button onClick={handlePostEdit}>

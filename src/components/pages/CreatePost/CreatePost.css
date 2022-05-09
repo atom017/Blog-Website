@@ -1,7 +1,7 @@
 .createPost-Wrapper{
     position:absolute;
     width:100%;
-  height: calc(100vh - 4rem);
+
   background-image: url('../../../images/image-2.jpg');
   background-repeat: no-repeat;
   background-size: cover;

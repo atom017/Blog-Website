@@ -8,22 +8,20 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const CreatePost = () => {
-  const {user} = useUserContext();
-  const [imgPreview,setImgPreview] = useState('');
-  
+  const {currentUser} = useUserContext();
+
   const [formData,setFormData]= useState({
     title:'',
     description:'',
     image:'',
     tag:'travel',
     createdAt:Timestamp.now().toDate(),
-    user:user
+    user:currentUser
   })
 
   const handleImageChange = (e) =>{
     setFormData({...formData,image:e.target.files[0]});
-    setImgPreview(URL.createObjectURL(e.target.files[0]));
-    
+   
   }
 
   const handlePublish = (e) =>{
@@ -44,21 +42,20 @@ const CreatePost = () => {
     },
     () =>{
      
-      
       getDownloadURL(uploadImage.snapshot.ref)
       .then((url) =>{
         const postRef = collection(db,'Posts');
-        console.log(user);
+        
         addDoc(postRef,{
           title:formData.title,
           description:formData.description,
           imageUrl:url,
           tag:formData.tag,
           createdAt:Timestamp.now().toDate(),
-          user:user
+          user:currentUser
         }).then(()=>{
           toast("Post added Successfully", {type:"success"});
-          console.log('uploaded!');
+          
         })
         .catch(err=>{
           toast("Error creating post!",{type:"error"});
