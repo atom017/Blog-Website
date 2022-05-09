@@ -1,4 +1,4 @@
-<h1>Solution of Codementor Challenge</h1>
+<h1>Simple Blog Website With Firebase Authentication</h1>
 <div align="center">
   <h3>
     <a href="https://blog-website-react.netlify.app/">
