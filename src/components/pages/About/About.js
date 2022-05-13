@@ -13,7 +13,9 @@ const About = () => {
             <h1>About Us</h1>
         </div>
         
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi, labore. Illo magni sapiente aperiam eum voluptatum, asperiores quibusdam unde nulla corrupti aliquid sunt. Ullam, cum id maiores delectus placeat laudantium!</p>
+        <p>This is a minimal blog website where you can create,delete and edit your posts.
+           Other functionality includes logging in and  logging out. It  is intended to add more functionalities like filtering by category, get the current user's posts in this blog website.
+           Thank you for coming here.</p>
         
         <button className='btn' onClick={handleClick}>Back To Home</button>
     </div>

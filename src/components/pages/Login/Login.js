@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './Login.css'
 import {auth,provider} from '../../../firebase/FirebaseConfig';
 import {signInWithPopup} from 'firebase/auth';
@@ -7,7 +7,7 @@ import { useUserContext } from '../../../context/UserContext';
 
 
 const Login = () => {
-  const {setIsAuth,setCurrentUser,currentUser}= useUserContext();
+  const {setIsAuth,setCurrentUser}= useUserContext();
   let navigate  = useNavigate();
 
   const loginGoogle = () =>{
@@ -25,8 +25,6 @@ const Login = () => {
      
     })
    
-
-    
   }
  
   return (
