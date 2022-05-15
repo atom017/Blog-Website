@@ -8,12 +8,16 @@ const Filter = () => {
   const [tag,setTag] = useState('');
   const {posts,setShowPosts} = useUserContext();
 
-  const handleSearch = async (e) =>{
+  const handleSearch =  (e) =>{
     const searchTerm = searchText.trim().toLowerCase();
     
-    const tempPosts= posts.filter(post => post.title.toLowerCase().includes(searchTerm));
+    if(e.key === 'Enter'){
+      const tempPosts= posts.filter(post => post.title.toLowerCase().includes(searchTerm));
     //console.log(tempPosts);
     setShowPosts(tempPosts);
+    setSearchText('');
+    }
+  
   }
 
   const handleOnSelect =(e) =>{
@@ -60,7 +64,7 @@ const Filter = () => {
         placeholder='search by title...' 
         className='searchInput'
         onChange={(e)=>setSearchText(e.target.value)}
-        onKeyDown={(e) => handleSearch(e)}
+        onKeyPress={(e) => handleSearch(e)}
 
         />
         <i className="fa-solid fa-magnifying-glass searchIcon"></i>

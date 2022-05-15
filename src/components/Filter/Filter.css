@@ -22,7 +22,7 @@
 }
 
 .searchInput{
-    padding:0.6rem 1.5rem 0.6rem 2rem;
+    padding:0.6rem 1.5rem 0.6rem 2.5rem;
     outline:none;
     border:none;
     width:100%;
@@ -44,7 +44,7 @@
 .searchIcon{
     position:absolute;
     top:12px;
-    left:6px;
+    left:10px;
     color:#fff;
 }
 
