@@ -1,16 +1,39 @@
 import { createContext ,useState,useContext,useEffect} from "react";
 import { collection, onSnapshot, orderBy,query } from 'firebase/firestore';
-import { db } from "../firebase/FirebaseConfig";
+import { auth, db } from "../firebase/FirebaseConfig";
 
 export const UserContext= createContext();
 
 export const UserContextProvider = ({children}) =>{
     const [posts,setPosts] = useState([]);
     const [showPosts,setShowPosts] = useState([]);
-    const user =JSON.parse(localStorage.getItem("currentUser"));
+    const tmp = localStorage.getItem("currentUser");
+    const tmpAuth = localStorage.getItem("isBlogAuth")
+    let user,authorize;
+    
+    
+    //check iff there is user on local storage
+    if(tmp != null){
+      user =JSON.parse(tmp);
+    }
+    else{
+      user={
+        id:'',
+        name:'',
+        photoURL:''
+      }
+    }
+
+   // check if there is isAuth item on localStorage
+    if(tmpAuth == null){
+      authorize = false;
+    }
+    else{
+      authorize = true;
+    }
     
     const [currentUser,setCurrentUser] = useState(user);
-    const [isAuth,setIsAuth] = useState(localStorage.getItem("isBlogAuth"));
+    const [isAuth,setIsAuth] = useState(authorize);
     const [toggleMenu,setToggleMenu] = useState(false);
    
     const getAllPosts = () =>{

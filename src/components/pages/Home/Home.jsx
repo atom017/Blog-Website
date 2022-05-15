@@ -6,11 +6,17 @@ import Posts from '../Posts/Posts';
 import './Home.css';
 
 const Home = () => {
-  const {currentUser} = useUserContext();
+  const {isAuth,currentUser} = useUserContext();
+  
+  useEffect(() =>{
+    console.log('isAuth',isAuth,currentUser);
+    if(isAuth == true){
+      localStorage.setItem('isBlogAuth',true);
+      localStorage.setItem('currentUser',JSON.stringify(currentUser));
+    }
 
-  useEffect(()=>{
-    localStorage.setItem("currentUser",JSON.stringify(currentUser));
-  },[currentUser])
+  },[isAuth])
+  
   return (
     <section id='home'>
         <Header/>

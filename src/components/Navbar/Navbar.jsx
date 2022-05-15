@@ -7,7 +7,7 @@ import { auth } from '../../firebase/FirebaseConfig';
 
 const Navbar = () => {
   let navigate = useNavigate();
-  const {isAuth,setIsAuth,toggleMenu,setToggleMenu,currentUser} = useUserContext();
+  const {isAuth,setIsAuth,toggleMenu,setToggleMenu,currentUser,setCurrentUser} = useUserContext();
   
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
 
@@ -29,8 +29,10 @@ const Navbar = () => {
   const handleSignOut = () =>{
     signOut(auth);
     setIsAuth(false);
-    localStorage.removeItem('isBlogAuth');
+    setCurrentUser(null);
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('isBlogAuth');
+   
     navigate('/login');
   }
 
@@ -40,7 +42,7 @@ const Navbar = () => {
       <h2 className='navLogo'><span>H</span>aruki</h2>
       
       <div className='navRight'>
-        {isAuth && (
+        {isAuth && currentUser && (
             <div className='avatar'>
             <img className='avatarImg' src={currentUser.photoURL} alt="img" />
              
