@@ -15,7 +15,7 @@ const Home = () => {
     <section id='home'>
         <Header/>
         <div className="home-split">
-           
+          <Filter/>
           <Posts/>
         </div>
         

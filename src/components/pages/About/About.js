@@ -14,7 +14,7 @@ const About = () => {
         </div>
         
         <p>This is a minimal blog website where you can create,delete and edit your posts.
-           Other functionality includes logging in and  logging out. It  is intended to add more functionalities like filtering by category, get the current user's posts in this blog website.
+           Other functionality includes logging in and  logging out. It  is intended to add more functionalities like latest posts on the blog and  get the current user's posts in this blog website.
            Thank you for coming here.</p>
         
         <button className='btn' onClick={handleClick}>Back To Home</button>

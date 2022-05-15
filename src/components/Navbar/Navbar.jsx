@@ -43,12 +43,11 @@ const Navbar = () => {
         {isAuth && (
             <div className='avatar'>
             <img className='avatarImg' src={currentUser.photoURL} alt="img" />
-             <small>{currentUser.name}</small>
+             
             </div>
         )}
           
-
-          {(toggleMenu || screenWidth > 768) && 
+        {(toggleMenu || screenWidth > 768) && 
       (<ul className='navLists'>
         <li className='navList' ><Link to="/" className='navItem' >Home</Link></li>
         <li className='navList'><Link to="/about" className='navItem'>About</Link></li>
