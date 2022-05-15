@@ -42,6 +42,7 @@
 .navLists{
     display: flex;
     list-style-type: none;
+   
 }
 
 .nav-bars{
@@ -49,8 +50,10 @@
 }
 
 .navItem{
+   
    list-style: none;
     margin-right: 1rem;
+   
     cursor:pointer;
     color:#fff;
     padding:0px;
@@ -69,21 +72,12 @@
     justify-content: space-between;
     align-items: center;
     
-
 }
 
-.loginBtn{
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    background-color: var(--primary-blue);
-    outline:none;
-    margin-right: 0.5rem;
-    border:none;
+
+.logoutLink{
+    text-decoration: none;
     color:#fff;
-}
-
-.loginBtn:hover{
-    background-color: #333;
 }
 
 @media screen and (max-width:768px){

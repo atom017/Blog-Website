@@ -53,8 +53,8 @@ const Navbar = () => {
         <li className='navList'><Link to="/about" className='navItem'>About</Link></li>
         {isAuth &&<li className='navList'><Link to="/createPost" className='navItem'>Create</Link></li>
         }
-        {isAuth ? <button onClick={handleSignOut} className='loginBtn'>Logout</button>:
-        <Link to="/login"><button  className='loginBtn'>Login</button></Link>}
+        {isAuth ? <li className='navList navItem' onClick={handleSignOut} >Logout</li>:
+        <li className='navList'><Link className='navItem' to="/login">Login</Link></li>}
 
       </ul>)}
 
