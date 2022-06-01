@@ -21,6 +21,7 @@ const CreatePost = () => {
 
   const handleImageChange = (e) =>{
     setFormData({...formData,image:e.target.files[0]});
+    e.target.value=null;
    
   }
 

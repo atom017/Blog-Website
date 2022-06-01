@@ -33,9 +33,10 @@ const SinglePost = () => {
       
       const imageUrl = postDetail.imageUrl;
       await deleteDoc(doc(db,'Posts',id));
-      toast('Article Deleted!',{type:"success"});
+      toast('Post Deleted!',{type:"success"});
       const storageRef = ref(storage,imageUrl);
       await deleteObject(storageRef);
+      navigate('/');
     } catch (error) {
       toast('Error deleting Post!',{type:"error"})
     }
